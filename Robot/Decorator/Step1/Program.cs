@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Robot.Step1
+namespace Robot.Decorator.Step1
 {
     class Program
     {

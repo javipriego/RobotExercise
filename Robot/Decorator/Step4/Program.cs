@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Robot.Step3
+namespace Robot.Decorator.Step4
 {
     class Program
     {
@@ -25,9 +25,18 @@ namespace Robot.Step3
     public class Robot
         : IRobot
     {
+        static int _robotCounts = 0;
+        int _robotNumber = 0;
+
+        public Robot()
+        {
+            _robotNumber = _robotCounts;
+            _robotCounts++;
+        }
+
         public void DoStuff()
         {
-            Console.WriteLine("Robot init");
+            Console.WriteLine("Robot init" + _robotNumber.ToString());
         }
     }
 
@@ -38,13 +47,13 @@ namespace Robot.Step3
 
         public DancerRobotDecorator(IRobot robot)
         {
-            this._robot = robot;
+            _robot = robot;
         }
 
         public void DoStuff()
         {
             _robot.DoStuff();
-            Console.WriteLine("Dance");            
+            Console.WriteLine("Dance");
         }
     }
 
@@ -55,7 +64,7 @@ namespace Robot.Step3
 
         public FighterRobotDecorator(IRobot robot)
         {
-            this._robot = robot;
+            _robot = robot;
         }
 
         public void DoStuff()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Robot.Step4
+namespace Robot.Decorator.Step2
 {
     class Program
     {
@@ -10,10 +10,8 @@ namespace Robot.Step4
             var robots = new List<IRobot>();
             var robot1 = new Robot();
             var robot2 = new Robot();
-            var robot3 = new Robot();
             robots.Add(new DancerRobotDecorator(robot1));
             robots.Add(new FighterRobotDecorator(robot2));
-            robots.Add(new DancerRobotDecorator(new FighterRobotDecorator(robot3)));
 
             foreach (IRobot robot in robots)
             {
@@ -25,18 +23,9 @@ namespace Robot.Step4
     public class Robot
         : IRobot
     {
-        static int _robotCounts = 0;
-        int _robotNumber = 0;
-
-        public Robot()
-        {
-            _robotNumber = _robotCounts;
-            _robotCounts++;
-        }
-
         public void DoStuff()
         {
-            Console.WriteLine("Robot init" + _robotNumber.ToString());
+            Console.WriteLine("Robot init");
         }
     }
 
@@ -47,13 +36,13 @@ namespace Robot.Step4
 
         public DancerRobotDecorator(IRobot robot)
         {
-            this._robot = robot;
+            _robot = robot;
         }
 
         public void DoStuff()
         {
             _robot.DoStuff();
-            Console.WriteLine("Dance");            
+            Console.WriteLine("Dance");
         }
     }
 
@@ -64,7 +53,7 @@ namespace Robot.Step4
 
         public FighterRobotDecorator(IRobot robot)
         {
-            this._robot = robot;
+            _robot = robot;
         }
 
         public void DoStuff()
