@@ -1,5 +1,5 @@
 # RobotExercise
-Use of patterns to solve robots exercise
+Use of patterns (decorator, factory) to solve robots exercise
 
 # Program 
 You have a robot that Dance inserted in a list of robots
