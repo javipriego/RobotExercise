@@ -7,6 +7,13 @@ You have a robot that Dance inserted in a list of robots
 # Step1.Program
 How would you use abstraction to make more efficient this robot list?
 
+consider that aftert this step you cant touch the following part of code related to program: 
+
+            foreach (IRobot robot in robots)
+            {
+                robot.DoStuff();
+            }
+
 # Step2.Program 
 Add a robot that want fight instead of dance
 
